@@ -13,14 +13,19 @@ function crearUsuario() {
     this.nombre = opciones.nombre;
     this.email = opciones.email;
     this.password = opciones.password;
+    this.saludar = function(){
+      return 'Hola, mi nombre es ' + this.nombre;
   }
-
-  Usuario.prototype.saludar = function() {
-    return 'Hola, mi nombre es ' + this.nombre;
+  //otra forma de hacerlo
+  //Usuario.prototype.saludar = function() {
+    //return 'Hola, mi nombre es ' + this.nombre;
+    //return `Hola mi nombre es ${this.nombre}`;
   };
  return Usuario;
 
 }
+
+
 
 function agregarMetodoPrototype(Constructor) {
   // Agrega un método al Constructor del `prototype`
@@ -39,11 +44,15 @@ function agregarStringInvertida() {
   // 'toni'.reverse() => 'inot'
   // Pista: Necesitarás usar "this" dentro de "reverse"
   String.prototype.reverse = function() {
-    var stringInvertida = '';
+    var palabraInvertida = '';
     for(var i = this.length - 1; i>=0; i--) {
-      stringInvertida = stringInvertida + this.charAt(i);
+      //+=  palabraInvertida = palabraInvertida + this[i]
+      palabraInvertida += this[i];
     }
-    return stringInvertida;
+    return palabraInvertida;
+
+    // otra opcion
+    // retunr this.split("").reverse().join("");
   }
 }
 
@@ -63,7 +72,7 @@ function agregarStringInvertida() {
       // Crea el constructor:
       this.nombre = nombre,
       this.apellido = apellido,
-      this.edad = edad, 
+      this.edad = edad,
       this.domicilio = domicilio,
       this.detalle = function() {
         return {
@@ -82,6 +91,7 @@ function crearInstanciaPersona(nombre, apellido, edad, dir) {
   //Devolver la nueva persona creada
   var obj = new Persona(nombre, apellido, edad, dir);
   return obj;
+    // return new Persona(nombre, apellido, edad, dir);
 }
   
 function agregarMetodo() {
