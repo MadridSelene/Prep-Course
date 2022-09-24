@@ -10,7 +10,7 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   var resultado = [];
-  //key = propiedad = clave = cualquierNombre
+  //key = propiedad = clave = indice (?)= cualquierNombre
   for (var key in objeto) {
     resultado.push ([key, objeto[key]]);
   }
@@ -142,13 +142,21 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
-  let cadena2="";
+// el OF devuelve el VALOR (obj {propiedad:valor} y el IN retorna el indice/propiedad)
+  var nuevaCadena = "";
+  for (var letra of cadena) {
+    if (letra !== "a" && letra !== "b" && letra !== "c") {
+      nuevaCadena += letra;
+    }
+  }
+  return nuevaCadena;
+  /*let cadena2="";
   for(let i=0; i< cadena.length ; i++){
     if(cadena[i] !== "a" && cadena[i] !== "b" && cadena[i] !== "c"){
       cadena2+= cadena[i];
     }
   }
-  return cadena2;
+  return cadena2;*/
 
 }
 
@@ -167,6 +175,12 @@ function sortArray(arr) {
     arr[j+1] = temp
 }
   return arr;
+
+    /*
+   return arr.sort(function(a,b){
+    return a.length - b.length;
+   });
+  */
 
 }
 
@@ -187,6 +201,17 @@ function buscoInterseccion(arreglo1, arreglo2){
      }
   }
   return arreglo;
+/*
+let nuevoArray= [];
+for (let e of arreglo1) {
+  for (let i of arreglo2){
+    if (e===i) {
+      nuevoArray.push(e);
+    }
+  }
+} return nuevoArray;
+*/
+
 }
 
 
